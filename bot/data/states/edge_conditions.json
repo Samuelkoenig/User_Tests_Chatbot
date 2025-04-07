@@ -1,0 +1,29 @@
+{
+  "edge_conditions": {
+    "D_order_number_check": {
+      "conditional_slot": "d_val", 
+      "if_true": {"type": "direct", "next_state": "D", "rg_action": "D_standard"},
+      "if_false": {"type": "direct", "next_state": "current_state", "rg_action": "D_wrong_number"}
+    },
+    "AD_order_number_check": {
+      "conditional_slot": "d_val", 
+      "if_true": {"type": "direct", "next_state": "AD", "rg_action": "AD_standard"},
+      "if_false": {"type": "direct", "next_state": "current_state", "rg_action": "AD_wrong_number"}
+    },
+    "BD_order_number_check": {
+      "conditional_slot": "d_val", 
+      "if_true": {"type": "direct", "next_state": "BD", "rg_action": "BD_standard"},
+      "if_false": {"type": "direct", "next_state": "current_state", "rg_action": "BD_wrong_number"}
+    },
+    "CD_article_check": {
+      "conditional_slot": "c_val", 
+      "if_true": {"type": "direct", "next_state": "CD", "rg_action": "CD_standard"},
+      "if_false": {"type": "direct", "next_state": "CD", "rg_action": "CD_wrong_article_standard"}
+    },
+    "CD_order_number_check": {
+      "conditional_slot": "d_val", 
+      "if_true": {"type": "conditional", "condition": "CD_article_check"},
+      "if_false": {"type": "direct", "next_state": "C", "rg_action": "CD_wrong_number"}
+    }
+  }
+}
