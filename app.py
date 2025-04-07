@@ -26,7 +26,7 @@ class RetryCosmosDbPartitionedStorage(CosmosDbPartitionedStorage):
     """
     Extension of the Botbuilder Storage, which undertakes automatic retries 
     at PreconditionFailed errors with the database. 
-    """
+    """ 
 
     def __init__(
         self,
